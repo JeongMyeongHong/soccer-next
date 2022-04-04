@@ -1,10 +1,10 @@
 import style from "./styles/board-form.module.css"
 import React, { useState } from "react";
+import axios from 'axios'
 
 export default function BoardForm(){
 
     const [inputs, setInputs] = useState({})
-    const {passengerId, name, teamId, subject} = inputs
 
     const onChange = (e) => {
         e.preventDefault()
@@ -17,8 +17,12 @@ export default function BoardForm(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const request = {passengerId, name, teamId, subject}
-        alert(`데이터 셋 출력 : ${JSON.stringify(request)}`)
+        alert(`데이터 셋 출력 : ${JSON.stringify(inputs)}`)
+        axios.post('http://localhost:5000/api/board/write', inputs)
+        .then(res => {
+            alert(res.data)
+        })
+        .catch(err => alert(err))
     }
     return(<>
         <h1>게시판</h1>

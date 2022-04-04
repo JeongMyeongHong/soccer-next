@@ -4,6 +4,9 @@ export default function Footer() {
 
         <div className="NavLinks_navLinksClass__Emk_i NavLinks_wide__OPVBB ">
             <div className="NavLinks_logo__jG9Ed">
+
+
+            
                 <img src="https://static.wanted.co.kr/images/userweb/logo_wanted_black.png" alt="wanted" />
             </div>
             <div className="NavLinks_group__6QFfj">
