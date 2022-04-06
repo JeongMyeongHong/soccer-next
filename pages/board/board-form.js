@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from 'axios'
 
 export default function BoardForm(){
-
+    const proxy = 'http://localhost:5000'
     const [inputs, setInputs] = useState({})
 
     const onChange = (e) => {
@@ -18,9 +18,9 @@ export default function BoardForm(){
     const handleSubmit = (e) => {
         e.preventDefault()
         alert(`데이터 셋 출력 : ${JSON.stringify(inputs)}`)
-        axios.post('http://localhost:5000/api/board/write', inputs)
+        axios.post(proxy+'/api/board/write', inputs)
         .then(res => {
-            alert(res.data)
+            alert(`결과 : ${res.data.result}`)
         })
         .catch(err => alert(err))
     }
