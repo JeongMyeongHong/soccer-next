@@ -13,7 +13,7 @@ export default function Calc() {
         })
     }
 
-    const onClick = async (e) => {
+    const onClick = (e) => {
         e.preventDefault()
         axios.post(proxy+`/api/basic/calc`, inputs)
         .then(res => {

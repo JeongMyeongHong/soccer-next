@@ -11,7 +11,7 @@ export default function Bmi() {
         setInputs({ ...inputs, [name]: value })
     }
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         axios.post(proxy + '/api/basic/bmi', inputs)
         .then(res => {
