@@ -1,6 +1,7 @@
 import tableStyle from "../common/styles/table.module.css"
 import {useState, useEffect} from 'react'
 import axios from "axios"
+import Link from 'next/link'
 
 const UserTable = ({ columns, colspan, data }) =>{
     return(<div>
@@ -21,12 +22,26 @@ const UserTable = ({ columns, colspan, data }) =>{
                             </tr>
                         ))
                     }
+
+                    { data.length == 0  ?<tr className={tableStyle.tr}>
+                                      <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다</td>
+                                      </tr>
+                        :data.map((user) => (
+                        <tr className={tableStyle.tr}  key={user.name} >
+                        <td className={tableStyle.td}>
+                            <Link href={{pathname:`/user/[name]`,
+                                        query:{selectedUser: 'test'}}} as={`/user/${user.name}`}>
+                            <a>{user.name}</a>
+                            </Link>
+                        </td></tr>))
+                    }
+
             </tbody>
         </table>
     </div>)
 }
 
-export default function UserList(){
+export default function UsersList(){
     const columns = ['UserName', 'ID', 'Password', 'PhoneNum']
     const [data, setData] = useState([])
     const proxy = 'http://localhost:5000'
