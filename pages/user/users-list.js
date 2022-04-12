@@ -12,17 +12,6 @@ const UserTable = ({ columns, colspan, data }) =>{
                 </tr>
             </thead>
             <tbody>
-                    { data.length == 0 ? <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다.</td>
-                        : data.map((user) => (
-                            <tr className={tableStyle.tr} key = {user._id}>
-                                <td className={tableStyle.td}>{user.name}</td>
-                                <td className={tableStyle.td}>{user.id}</td>
-                                <td className={tableStyle.td}>{user.pw}</td>
-                                <td className={tableStyle.td}>{user.phoneNum}</td>
-                            </tr>
-                        ))
-                    }
-
                     { data.length == 0  ?<tr className={tableStyle.tr}>
                                       <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다</td>
                                       </tr>
@@ -32,8 +21,13 @@ const UserTable = ({ columns, colspan, data }) =>{
                             <Link href={{pathname:`/user/[name]`,
                                         query:{selectedUser: 'test'}}} as={`/user/${user.name}`}>
                             <a>{user.name}</a>
+                            
                             </Link>
-                        </td></tr>))
+                        </td>
+                        <td className={tableStyle.td}>{user.id}</td>
+                        <td className={tableStyle.td}>{user.pw}</td>
+                        <td className={tableStyle.td}>{user.phoneNum}</td>
+                        </tr>))
                     }
 
             </tbody>
