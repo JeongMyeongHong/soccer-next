@@ -1,7 +1,7 @@
 import style from "board/styles/board-form.module.css"
 import { useState } from "react";
 
-export default function TeamForm(){
+export default function Team(){
     const [inputs, setInputs] = useState({})
     const {passengerId, name, teamId, subject} = inputs
 
@@ -20,7 +20,7 @@ export default function TeamForm(){
         alert(`등록할 게시글 : ${JSON.stringify(request)}`)
     }
     return (<>
-        <h1>게시글 등록</h1>
+        <h1>팀 등록</h1>
         <div className={style.container}>
             <form action="">
             <div className={style.row}>

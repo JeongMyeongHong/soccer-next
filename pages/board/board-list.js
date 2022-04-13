@@ -14,7 +14,7 @@ const BoardTable = ({ columns, colspan, data }) =>{
                     { data.length == 0 ? <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다.</td>
                         : data.map((board) => (
                             <tr className={tableStyle.tr} key = {board._id}>
-                                <td className={tableStyle.td}>{board.passengerId}</td>
+                                <td className={tableStyle.td}>{board.title}</td>
                                 <td className={tableStyle.td}>{board.name}</td>
                                 <td className={tableStyle.td}>{board.teamId}</td>
                                 <td className={tableStyle.td}>{board.subject}</td>
@@ -27,7 +27,7 @@ const BoardTable = ({ columns, colspan, data }) =>{
 }
 
 export default function BoardList(){
-    const columns = ['사용자 아이디', '사용자 이름', '응원팀 이름', 'subject']
+    const columns = ['글 제목', '사용자 이름', '응원팀 이름', '글 내용']
     const [data, setData] = useState([])
     const proxy = 'http://localhost:5000'
 

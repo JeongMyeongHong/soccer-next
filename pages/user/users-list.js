@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from "axios"
 import Link from 'next/link'
 
-const UserTable = ({ columns, colspan, data }) =>{
+const Table = ({ columns, colspan, data }) =>{
     return(<div>
         <table className={tableStyle.table}>
             <thead>
@@ -49,7 +49,7 @@ export default function UsersList(){
         <h1>유저 리스트</h1> 
         {data.length !=0 && <h3>회원수 : {data.length} 명</h3>}
         <div className={tableStyle.td}>
-        <UserTable columns={columns} colsapn={4} data={data}/>
+        <Table columns={columns} colsapn={4} data={data}/>
         </div>
     </div>)
 }

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = []
 export const adminSlice = createSlice({
-    name: 'admin',
+    name: 'admins',
     initialState,
     reducers: {
         access(state, action){}
