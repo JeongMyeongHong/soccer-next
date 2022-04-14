@@ -10,7 +10,6 @@ export const boardSlice = createSlice({
             alert(`리듀서 내부 글내용 : ${JSON.stringify(action)}`)
             const title = {id: new Date(), title: action.payload.title}
             state.push(title)
-            {action.payload.key}
         }
     }
 })

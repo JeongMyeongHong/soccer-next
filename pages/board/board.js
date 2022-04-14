@@ -22,7 +22,6 @@ export default function Board(){
                 e.preventDefault()
                 alert(`value: ${JSON.stringify(inputs)}`)
                 if (inputs) dispatch(addAll(inputs))
-                
             }}>
             <div className={style.row}>
                 <div className={style.col25}>

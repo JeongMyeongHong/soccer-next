@@ -60,7 +60,7 @@ export default function Login() {
   return (
     <>
       <Root
-        style={{ width: "60vh", marginLeft: " 434px", marginTop: "-100px;" }}
+        style={{ width: "60vh" }}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}

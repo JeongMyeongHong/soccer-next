@@ -1,10 +1,9 @@
 import { PayloadAction} from '@reduxjs/toolkit'
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
-import {
-    JoinPayload, joinRequest, joinSuccess, joinFailure
-} from '../reducers/user.reducer'
+import { JoinPayload } from '../reducers/user.reducer'
+import {  } from '../api'
 
-function* join(action){
+function* join(action: PayloadAction<JoinPayload>){
     try{
         alert('saga내부join 성공')
         const result = yield call(userAPI.join, action.payload)

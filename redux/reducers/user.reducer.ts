@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+export interface JoinPayload {
+    data: {
+        user: {
+            
+        }
+    }
+}
+
 export const UserDataPayload = {
     id: String,
     name: String,
