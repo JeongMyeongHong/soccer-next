@@ -24,7 +24,7 @@ const Table = ({ columns, colspan, data }) =>{
                             
                             </Link>
                         </td>
-                        <td className={tableStyle.td}>{user.id}</td>
+                        <td className={tableStyle.td}>{user.userid}</td>
                         <td className={tableStyle.td}>{user.pw}</td>
                         <td className={tableStyle.td}>{user.phoneNum}</td>
                         </tr>))
@@ -36,7 +36,7 @@ const Table = ({ columns, colspan, data }) =>{
 }
 
 export default function UsersList(){
-    const columns = ['UserName', 'ID', 'Password', 'PhoneNum']
+    const columns = ['사용자ID', '이름', '이메일', '전화번호', '생년월일', '주소']
     const [data, setData] = useState([])
     const proxy = 'http://localhost:5000'
 
@@ -49,7 +49,7 @@ export default function UsersList(){
         <h1>유저 리스트</h1> 
         {data.length !=0 && <h3>회원수 : {data.length} 명</h3>}
         <div className={tableStyle.td}>
-        <Table columns={columns} colsapn={4} data={data}/>
+        <Table columns={columns} colsapn={columns.length} data={data}/>
         </div>
     </div>)
 }

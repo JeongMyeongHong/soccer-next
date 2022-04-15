@@ -10,11 +10,11 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import * as yup from 'yup';
-import _ from '@lodash';
+import * as _ from 'lodash'
 // import './styles/UserLayout.scss'
 // import "./styles/UserRegister.scss"
 // import { CheckList } from '..';
-import { joinRequest } from '../../redux/reducers/user.reducer';
+import { joinRequest } from '../../redux/reducers/userReducer.ts';
 import Image from 'next/image'
 
 /**
@@ -92,6 +92,7 @@ export default function Join() {
                   name="registerForm"
                   noValidate
                   className="flex flex-col justify-center w-full"
+                  onSubmit={handleSubmit(async (data) => { await dispatch(joinRequest({...data,}))})}
                 >
                   <Controller
                     name="userid"

@@ -1,4 +1,4 @@
-import {Layout} from "common"
+import {Layout} from "./common"
 import {wrapper} from '../redux/store'
 
 const MyApp = ({ Component, pageProps }) => {
