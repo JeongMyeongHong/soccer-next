@@ -1,8 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
+import tableStyles from '../common/styles/table.module.css'
 export default function Calc() {
-    const proxy = 'http://localhost:5000'
     const [inputs, setInputs] = useState({opcode: "+"})
+    const [result, setResult] = useState(``)
+    const { num1, num2, opcode} = inputs
 
     const onChange = (e) => {
         e.preventDefault()
@@ -13,27 +14,36 @@ export default function Calc() {
         })
     }
 
-    const onClick = (e) => {
+    const onClick = async (e) => {
         e.preventDefault()
-        axios.post(proxy+`/api/basic/calc`, inputs)
-        .then(res => {
-                const calc = res.data
-                document.getElementById('result-span').innerHTML = `
-                <h3>num1 : ${calc.num1}</h3>
-                <h3>연산자 : ${calc.opcode}</h3>
-                <h3>num2 : ${calc.num2}</h3>
-                <h3>결과 : ${calc.result}</h3>
-                `
-            })
-        .catch(err => alert(err))
+        switch (opcode){
+            case "+" :
+                return setResult(Number(num1) + Number(num2))
+            case "-" :
+                return setResult(Number(num1) - Number(num2))
+            case "*" :
+                return setResult(Number(num1) * Number(num2))
+            case "/" :
+                return setResult(Number(num1) / Number(num2))
+            case "%" :
+                return setResult(Number(num1) % Number(num2))
+            default :
+                console.log("Default")
+        }
     }
 
-    return (<>
-        <h1>계산기</h1>
-        <form action="" onSubmit={onClick}>
-
+    return (<form >
+        <table className={tableStyles.table}>
+            <thead>
+                <tr>
+                    <th><h2>계산기</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr >
+        <td>
             <label htmlFor="">num1</label>
-            <input name="num1" type="text" onChange={onChange} /> <br />
+            <input name="num1" type="text" onChange={onChange} /> 
 
             <label htmlFor="">연산자</label>
             <select name="opcode" onChange={onChange} >
@@ -42,14 +52,15 @@ export default function Calc() {
                 <option value="*">*</option>
                 <option value="/">/</option>
                 <option value="%">%</option>
-            </select><br />
+            </select>
 
             <label htmlFor="">num2</label>
             <input name="num2" type="text" onChange={onChange} /><br />
 
-            <input type="submit" value="계산하기" /><br />
-        </form>
-        <div> <span id="result-span"></span></div>
-    </>
-    )
+            <button onClick={onClick}>계산하기</button></td>
+            </tr>
+            <tr><td>결과 : {result}</td></tr>
+                </tbody>
+            </table>
+        </form>)
 }

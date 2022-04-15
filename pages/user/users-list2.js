@@ -16,17 +16,19 @@ const Table = ({ columns, colspan, data }) =>{
                                       <td colSpan={colspan} className={tableStyle.td}>데이터가 없습니다</td>
                                       </tr>
                         :data.map((user) => (
-                        <tr className={tableStyle.tr}  key={user.name} >
+                        <tr className={tableStyle.tr}  key={user.userid} >
                         <td className={tableStyle.td}>
-                            <Link href={{pathname:`/user/[name]`,
-                                        query:{selectedUser: 'test'}}} as={`/user/${user.name}`}>
-                            <a>{user.name}</a>
+                            <Link href={{pathname:`/user/[userid]`,
+                                        query:{selectedUser: 'test'}}} as={`/user/${user.userid}`}>
+                            <a>{user.userid}</a>
                             
                             </Link>
                         </td>
-                        <td className={tableStyle.td}>{user.userid}</td>
-                        <td className={tableStyle.td}>{user.pw}</td>
-                        <td className={tableStyle.td}>{user.phoneNum}</td>
+                        <td className={tableStyle.td}>{user.name}</td>
+                        <td className={tableStyle.td}>{user.email}</td>
+                        <td className={tableStyle.td}>{user.phone}</td>
+                        <td className={tableStyle.td}>{user.birth}</td>
+                        <td className={tableStyle.td}>{user.address}</td>
                         </tr>))
                     }
 

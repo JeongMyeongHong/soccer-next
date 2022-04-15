@@ -1,9 +1,10 @@
 .nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(245, 112, 112, 0.435);
-}
-.li {
+    margin: 0 auto;
+    font-size: 15px;
+    width: 900px;
+    border: 1px solid black;
+    }
+  .li {
     display: inline;
     margin-left: 40px;
-}
+  }

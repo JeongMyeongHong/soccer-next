@@ -32,7 +32,8 @@ const userSlice = createSlice({
     reducers: {
         joinRequest: (state: UserState, payload) => { alert('진행2: 리듀서 내부'), state.loading = true },
         joinSuccess(state: UserState, {payload}){ state.data = [...state.data, payload], state.loading = false },
-        joinFailure(state: UserState, {payload}){ state.data = payload, state.loading = false }
+        joinFailure(state: UserState, {payload}){ state.data = payload, state.loading = false },
+        showList(state: UserState, {payload}){ state.data = [...state.data, payload], state.loading = false }
     }
 })
 const { reducer, actions } = userSlice //reducer는 함수 + actions는 객체 = userSlice는 기능+객체 = 객체

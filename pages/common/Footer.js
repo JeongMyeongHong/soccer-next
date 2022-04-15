@@ -1,24 +1,36 @@
 import React from "react";
+
 export default function Footer() {
-    return (<div>
-
-        <div className="NavLinks_navLinksClass__Emk_i NavLinks_wide__OPVBB ">
-            <div className="NavLinks_logo__jG9Ed">
-
-
-            
-                <img src="https://static.wanted.co.kr/images/userweb/logo_wanted_black.png" alt="wanted" />
-            </div>
-            <div className="NavLinks_group__6QFfj">
-                <div><span data-attribute-id="fnb" data-fnb-kind="investment">
-                    <a href="https://github.com/JeongMyeongHong/" className="" aria-label="" target="_blank" rel="noopener noreferrer">my git</a>
-                </span><br />
-                    <span data-attribute-id="fnb" data-fnb-kind="termsOfUse">
-                        <a href="https://hjm9210.notion.site/hjm9210/BitCamp-8c8bec6738644635bfa1a0cf84be8b3b" className="" aria-label="" target="_blank" rel="noopener noreferrer">my notion</a>
-                    </span>
-                </div>
-            </div>
+    return (<footer>
+        <hr/>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress" alt="logo"/>
+            <a href="https://www.mongodb.com/" target="_blank">몽고DB</a> : MongoDB is a source-available cross-platform document-oriented database program.
         </div>
-
-    </div>)
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://initialcommit.com/img/initialcommit/beginners-guide-to-using-express-js-and-node-js-framework.png" alt="logo"/>
+            <a href="https://expressjs.com/" target="_blank">익스프레스</a> : Fast, unopinionated, minimalist web framework for Node.js
+        </div>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" alt="logo"/>
+            <a href="https://reactjs.org/" target="_blank">리액트</a> : A JavaScript library for building user interfaces
+        </div>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg" alt="logo"/>
+            <a href="https://redux.js.org/" target="_blank">리덕스</a> : A Predictable State Container for JS Apps
+        </div>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://redux-saga.js.org/img/Redux-Saga-Logo.png" alt="logo"/>
+            <a href="https://redux-saga.js.org/" target="_blank">리덕스-사가</a> : An intuitive Redux side effect manager.
+        </div>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://velog.velcdn.com/images/ysg81/post/5cf2ac97-a88f-47d1-bc44-ba88316d24ce/nextjs.png" alt="logo"/>
+            <a href="https://nextjs.org/" target="_blank">넥스트</a> : The React Framework for Production
+        </div>
+        <div data-attribute-id="fnb" data-fnb-kind="investment">
+            <img style={{width:30}} src="https://nodejs.org/static/images/logo.svg" alt="logo"/>
+            <a href="https://nodejs.org/ko/" target="_blank">노드</a> : Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+        </div>
+    </footer>
+)
 }

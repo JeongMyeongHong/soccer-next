@@ -1,70 +1,68 @@
-import React, {useState} from "react";
+import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
-import{ addTask } from '../../redux/reducers/todoReducer'
+import tableStyles from '../common/styles/table.module.css'
+import { todoActions } from '../../redux/reducers/todoReducer.ts'
 
-export default function AppTasks() {
-  const [value, setValue] = useState('')
-  const dispatch = useDispatch()
+export default function AddTodo() {
+    const [values, setValues] = useState({userid:'', task:'', complete: 'not completed'})
+    const [data, setData] = useState([])
+    const dispatch = useDispatch()
+    const handleChange = e =>{
+        e.preventDefault()
+        const{name, value} = e.target;
+        setValues({...values,[name]: value})
+    }
+
   return (
-     <div className="todoapp stack-large">
-      <h1>일정 등록</h1>
       <form onSubmit={e => {
         e.preventDefault()
-        alert('value?'+value)
-        if(value) dispatch(addTask({task: value}))
+        alert('진행 1 : 일정 등록'+JSON.stringify(values))
+        dispatch(todoActions.addRequest(values))
+        setValues({ userid:'', task:'', complete: 'not completed' })
       }}>
-        <input
-          type="text"
-          id="new-todo-input"
-          className="input input__lg"
-          name="text"
-          autoComplete="off"
-          onChange={e=> {
-            e.preventDefault()
-            setValue(e.target.value)
-          }}
-        />
-        <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
-          Add
-        </button>
-      </form>
-      {/** 
-    <h2 id="list-heading">
-        3 tasks remaining
-      </h2>
-    
-      
-      <ul
-        role="list"
-        className="todo-list stack-large stack-exception"
-        aria-labelledby="list-heading"
-      >
-        <li className="todo stack-small">
-          <div className="c-cb">
-            <input  id="todo-0" type="checkbox" defaultChecked={false} onChange={()=>{
-              setCheck(!check)
-            }}/>
-            <label className="todo-label" htmlFor="todo-0">
-              운동 24시간 하기
-            </label>
-            { check ? <Image class="rotate-center"
-            style={{ visibility: "visible", float: "right" }}
-            src="/vercel.svg" width="64" height="64"  />
-            :<Image
-            style={{ width: '6%', visibility: "hidden", float: "right" }}
-            src="/vercel.svg" width="64" height="64"  />}
-          </div>
-          <div className="btn-group">
-            <button type="button" className="btn">
-              Edit <span className="visually-hidden">Eat</span>
-            </button>
-            <button type="button" className="btn btn__danger">
-              Delete <span className="visually-hidden">Eat</span>
-            </button>
-          </div>
-        </li>
-      </ul>
-    */}
-    </div>
+        <table className={tableStyles.table}>
+        <thead>
+            <tr>
+                <th colSpan={2}><h2>투두리스트</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td><label>할일등록</label></td>
+                <td>
+                <label htmlFor=""><b>아이디 </b></label>
+                <input type="text" name='userid' onChange={handleChange}/><br />
+          
+                <label htmlFor=""><b>할 일 </b></label>
+                <input type="text" name='task
+                ' onChange={handleChange} autoComplete="off"/><br />
+          
+                <label htmlFor=""><b>완료여부</b></label>
+                <input type="checkbox" name='complete' value="completed" onChange={handleChange}/>
+          
+                  <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
+                    Add
+                  </button>
+            </td >
+            </tr>
+            <tr>
+              <td>
+                할일목록
+              </td>
+              <td>
+                {data.length == 0 ? 
+                <div>현재 등록된 일정이 없습니다</div>
+               
+                :data.map((todo) => (
+                    <div key={todo.context}>
+                        <div key={todo.context}></div>
+                    </div>
+                ))}
+              </td>
+            </tr>
+                </tbody>
+            </table>
+            </form>
+     
   );
 }

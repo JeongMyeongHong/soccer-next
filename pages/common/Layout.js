@@ -8,8 +8,8 @@ export default function Layout ({ children }) {
     <Nav/>
       <div className={style.container}>
         <main className={style.main}>{children}</main>
+        <Footer/>
       </div>
-      <Footer/>
     </>
   );
 };
