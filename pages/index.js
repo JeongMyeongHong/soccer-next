@@ -8,7 +8,6 @@ const Button = ({ onClick }) => (
 export default function Home() {
   const onClick = useCallback(() => {
     axios.get("http://localhost:5000/api/now").then((res) => {
-      alert(JSON.stringify(res.data))
       var data = res.data;
       document.getElementById("timeZone").innerHTML = '<h1>현재시간: '+data.now+'</h1>'
     })

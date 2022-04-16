@@ -30,6 +30,6 @@ function* add(todo: TodoType){
 }
 
 
-export function* watchAdd(){
+export function* watchAddTodo(){
     yield takeLatest(todoActions.addRequest, add)
 }
