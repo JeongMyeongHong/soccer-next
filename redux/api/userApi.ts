@@ -25,4 +25,15 @@ export const postUser = async (payload:
         }catch(error){
 
         }}
+
+// export const getUser = async (payload: 
+//     { userid: string; password: string; email: string; name: string; phone: string; birth: string; address: string;})=> {
+//         try{
+//             const response:  AxiosResponse<unknown, UserType[]> = await axios.get(`${SERVER}/api/user/list`)
+//             .then(res=>{ setData(res.data.users) }).catch(err=>{})
+//             alert(` 진행 ? : 데이터 가져오기 성공 ${JSON.stringify(response.data)}`)
+//             return response.data
+//         }catch(error){
+
+//         }}
                     

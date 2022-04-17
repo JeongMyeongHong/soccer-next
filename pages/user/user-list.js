@@ -16,7 +16,7 @@ export default function UserList(){
       <table className={tableStyles.table}>
         <thead>
             <tr>
-                <th colSpan={6}><h1>회원목록</h1></th>
+                <th colSpan={6}><h1>회원목록</h1>{data.length !=0 && <h3>회원수 : {data.length} 명</h3>}</th>
             </tr>
             
         </thead>
@@ -27,13 +27,12 @@ export default function UserList(){
                   ))}
                 </tr>
                 { data.length == 0  ?<tr >
-                                      <td colSpan={6} >데이터가 없습니다</td>
+                                      <td colSpan={columns.length} >데이터가 없습니다</td>
                                       </tr>
                 :data.map((user) => (
                 <tr key={user.userid} >
                   <td >
-                    <Link href={{pathname:`/user/[userid]`,
-                                query:{selectedUser: 'test'}}} as={`/user/${user.userid}`}>
+                    <Link href={{pathname:`/user/[userid]`, query:{selectedUser: 'test'}}} as={`/user/${user.userid}`}>
                       <a>{user.userid}</a>
                     </Link>
                   </td>

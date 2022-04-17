@@ -31,7 +31,6 @@ const schema = yup.object().shape({
     .required('비밀번호를 입력하세요')
     .min(4, '비밀번호가 너무 짧습니다. 4자리 이상 입력하세요'),
   passwordConfirm: yup.string().oneOf([yup.ref('password'), null], '비밀번호가 일치해야합니다'),
-
 });
 
 const defaultValues = {
