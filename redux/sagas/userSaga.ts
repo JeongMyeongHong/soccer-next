@@ -22,7 +22,40 @@ interface UserJoinSuccessType{
     }
 }
 
-function* join(user: UserType){
+function* join(user: UserType){ //create
+    try{
+        alert(' 진행 3: saga내부join 성공' + JSON.stringify(user))
+        const response: UserJoinSuccessType = yield postUser(user.payload)
+        yield put(userActions.joinSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부join 실패 : ' + error)
+        yield put(userActions.joinFailure(error))
+    }
+}
+
+function* join2(user: UserType){
+    try{
+        alert(' 진행 3: saga내부join 성공' + JSON.stringify(user))
+        const response: UserJoinSuccessType = yield postUser(user.payload)
+        yield put(userActions.joinSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부join 실패 : ' + error)
+        yield put(userActions.joinFailure(error))
+    }
+}
+
+function* join3(user: UserType){
+    try{
+        alert(' 진행 3: saga내부join 성공' + JSON.stringify(user))
+        const response: UserJoinSuccessType = yield postUser(user.payload)
+        yield put(userActions.joinSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부join 실패 : ' + error)
+        yield put(userActions.joinFailure(error))
+    }
+}
+
+function* join4(user: UserType){
     try{
         alert(' 진행 3: saga내부join 성공' + JSON.stringify(user))
         const response: UserJoinSuccessType = yield postUser(user.payload)
@@ -37,21 +70,3 @@ function* join(user: UserType){
 export function* watchJoin(){
     yield takeLatest(userActions.joinRequest, join)
 }
-
-
-// function* list(user: UserType){
-//     try{
-//         alert(' 진행 3: saga내부join 성공' + JSON.stringify(user))
-//         yield put(userActions.showList(response))
-//         // const result = yield call(joinApi, action.payload)
-//         // yield put(joinSuccess(result))
-//         // window.location.href = 'user/login'
-//     }catch(error){
-//         alert(' 진행 3: saga내부join 실패 : ' + error)
-//         yield put(userActions.joinFailure(error))
-//     }
-// }
-
-// export function* watchList(){
-//     yield takeLatest(userActions.joinRequest, list)
-// }

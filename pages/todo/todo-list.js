@@ -12,7 +12,7 @@ const Table = ({ columns, data }) =>(
             </thead>
             <tbody>
                     { data.length == 0  ?<tr className={tableStyle.tr}>
-                                      <td className={tableStyle.td}>일정이 없습니다</td>
+                                      <td className={tableStyle.td} colSpan={columns.length}>일정이 없습니다</td>
                                       </tr>
                         :data.map((todo) => (
                         <tr className={tableStyle.tr}  key={todo.task} >
@@ -24,7 +24,7 @@ const Table = ({ columns, data }) =>(
     </div>)
 
 export default function TodoList(){
-    const columns = ['일정']
+    const columns = ['아이디', '일정']
     const [data, setData] = useState([])
     const proxy = 'http://localhost:5000'
 

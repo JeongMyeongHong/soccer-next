@@ -18,7 +18,41 @@ interface addTodoSuccessType{
     }
 }
 
+/**
+ * addItem, getItem, modifyItem, removeItem
+ * C        R        U           D
+ */
 function* add(todo: TodoType){
+    try{
+        alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
+        const response: addTodoSuccessType = yield postTodo(todo.payload)
+        yield put(todoActions.addSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부add 실패 : ' + error)
+        yield put(todoActions.addFailure(error))
+    }
+}
+function* add2(todo: TodoType){
+    try{
+        alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
+        const response: addTodoSuccessType = yield postTodo(todo.payload)
+        yield put(todoActions.addSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부add 실패 : ' + error)
+        yield put(todoActions.addFailure(error))
+    }
+}
+function* add3(todo: TodoType){
+    try{
+        alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
+        const response: addTodoSuccessType = yield postTodo(todo.payload)
+        yield put(todoActions.addSuccess(response))
+    }catch(error){
+        alert(' 진행 3: saga내부add 실패 : ' + error)
+        yield put(todoActions.addFailure(error))
+    }
+}
+function* add4(todo: TodoType){
     try{
         alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
         const response: addTodoSuccessType = yield postTodo(todo.payload)
