@@ -2,34 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import tableStyles from '../common/styles/table.module.css'
 import { todoActions } from '../../redux/reducers/todoReducer.ts'
-import axios from "axios"
-
-const Table = ({ columns, data }) =>(
-  <div>
-      <table className={tableStyles.table}>
-          <thead>
-              <tr className={tableStyles.tr}>
-                  {columns.map((column, index) => <th key={index} className={tableStyles.td}>{column}</th>)}
-              </tr>
-          </thead>
-          <tbody>
-                  { data.length == 0  ?<tr className={tableStyles.tr}>
-                                    <td className={tableStyles.td} colSpan={columns.length}>일정이 없습니다</td>
-                                    </tr>
-                      :data.map((todo) => (
-                      <tr className={tableStyles.tr}  key={todo._id} >
-                      <td className={tableStyles.td}>{todo.userid}</td>
-                      <td className={tableStyles.td}>{todo.task}</td>
-                      </tr>))
-                  }
-          </tbody>
-      </table>
-  </div>)
 
 export default function AddTodo() {
     const [values, setValues] = useState({userid:'', task:'', complete: 'not completed'})
-    const [data, setData] = useState([])
-    const columns = ['아이디', '일정']
     const dispatch = useDispatch()
     const handleChange = e =>{
         e.preventDefault()

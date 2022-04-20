@@ -17,7 +17,6 @@ interface addTodoSuccessType{
         userid: string
     }
 }
-
 /**
  * addItem, getItem, modifyItem, removeItem
  * C        R        U           D
@@ -32,7 +31,7 @@ function* add(todo: TodoType){
         yield put(todoActions.addFailure(error))
     }
 }
-function* add2(todo: TodoType){
+function* get(todo: TodoType){
     try{
         alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
         const response: addTodoSuccessType = yield postTodo(todo.payload)
@@ -42,7 +41,7 @@ function* add2(todo: TodoType){
         yield put(todoActions.addFailure(error))
     }
 }
-function* add3(todo: TodoType){
+function* modify(todo: TodoType){
     try{
         alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
         const response: addTodoSuccessType = yield postTodo(todo.payload)
@@ -52,7 +51,7 @@ function* add3(todo: TodoType){
         yield put(todoActions.addFailure(error))
     }
 }
-function* add4(todo: TodoType){
+function* remove(todo: TodoType){
     try{
         alert(' 진행 3: saga내부add 성공' + JSON.stringify(todo))
         const response: addTodoSuccessType = yield postTodo(todo.payload)
@@ -62,7 +61,6 @@ function* add4(todo: TodoType){
         yield put(todoActions.addFailure(error))
     }
 }
-
 
 export function* watchAddTodo(){
     yield takeLatest(todoActions.addRequest, add)

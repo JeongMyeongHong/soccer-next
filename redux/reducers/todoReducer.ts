@@ -6,7 +6,6 @@ export interface TodoType{
     complete: string;
 }
 
-// state
 export interface TodoState{
     loading: boolean;
     data: TodoType[];
@@ -32,3 +31,4 @@ const todoSlice = createSlice({
 const { reducer, actions } = todoSlice
 export const todoActions = actions
 export default reducer
+
