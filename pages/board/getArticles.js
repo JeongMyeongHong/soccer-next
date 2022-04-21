@@ -6,7 +6,7 @@ export default function BoardList(){
     const columns = ["제목", "작성자", "주제", "내용"]
     const [data, setData] = useState([])
     useEffect(()=>{
-            axios.get('http://localhost:5000/api/board/read').then(res=>{
+            axios.get('http://localhost:5000/board/read').then(res=>{
                 setData(res.data.boards)
         }).catch(err=>{})
     }, [])
