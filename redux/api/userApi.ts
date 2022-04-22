@@ -31,6 +31,7 @@ export const loginApi = async (payload:
         try{
             const response:  AxiosResponse<unknown, UserType[]> = await axios.post(`${SERVER}/user/login`,payload, { headers })
             alert(` 진행 5 : login 응답 : ${JSON.stringify(response.data)}`)
+            localStorage.setItem("loginUser", JSON.stringify(response.data))
             return response.data
         }catch(error){
 
